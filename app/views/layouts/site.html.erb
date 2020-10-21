@@ -1,9 +1,5 @@
+
 <style>
-
-/*.navbar a:hover {
-  background-color: #D3D3D3;
-}*/ 
-
 .index-link {
   color: black;
   padding: 20px;
@@ -18,7 +14,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>TimeToAnswer</title>
+    <title>LogisticaDeManobras</title>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -32,22 +28,41 @@
   <body>
 
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light rounded ">
-        <%= link_to 'Início', root_path, class:"index-link" %>
+      <nav class="navbar navbar-expand-lg navbar-light rounded " style="background-color: #2f4f4f; padding:20px">
+        <!-- Links para index de cada controller-->
+        <%= link_to 'Início', root_path, class:"index-link", style:"font-size: 20px; color: white"%>
+
+        <%= link_to 'Próximas Manobras', site_next_maneuvers_index_path, class:"index-link", style:"font-size: 20px; color: white" %>
+
+        <%= link_to 'Manobras Realizadas', site_maneuvers_performed_index_path, class:"index-link", style:"font-size: 20px; color: white" %>
 
         <div class="collapse navbar-collapse" id="navbarsExample09">
           <ul class="navbar-nav ml-auto">
           <%if 1%>
-            <li class="nav-item active">
-              <a class="nav-link">
-                <%= link_to 'Entrar', '#', class:"index-link"%>
+             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="font-size: 20px; color: white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Entrar
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #DCDCDC">
+                <a><%= link_to 'Operador', '#', class:"dropdown-item", style:"font-size: 15px; color: black"%></a>
+                <hr>
+                 <a><%= link_to 'Prático', '#', class:"dropdown-item", style:"font-size: 15px; color: black"%></a>
+              </div>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link">
-                <%= link_to 'Cadastrar-se', '#', class:"index-link"	%>
+            <li >
+
+             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="font-size: 20px; color: white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Cadastre-se
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #DCDCDC">
+                <a><%= link_to 'Operador', '#', class:"dropdown-item", style:"font-size: 15px; color: black"%></a>
+                <hr>
+                 <a><%= link_to 'Prático', '#', class:"dropdown-item", style:"font-size: 15px; color: black"%></a>
+              </div>
             </li>
+            <li >
+
           <%else%>
             <li class="nav-item dropdown" class="index-link">
               <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="padding: 15px; color:black"><%=current_user.email%></a>
