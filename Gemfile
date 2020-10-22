@@ -27,6 +27,15 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#devise
+gem 'devise'
+gem 'rails-i18n', '~> 5.1'
+gem 'tty-spinner'
+gem 'faker'
+gem 'kaminari'
+gem 'kaminari-i18n'
+gem 'cocoon'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

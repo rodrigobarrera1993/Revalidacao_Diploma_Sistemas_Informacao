@@ -1,0 +1,2 @@
+module PilotsBackoffice::WelcomeHelper
+end
