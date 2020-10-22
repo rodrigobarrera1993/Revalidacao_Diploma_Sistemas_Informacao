@@ -1,26 +1,40 @@
-<h2>Log in prático</h2>
+<title> Login Prático </title>
+<div class="limiter">
+		<div class="container-login100" style="background-color: #D3D3D3">
+			<div class="wrap-login100">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+				<div class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+					<span class="login100-form-title" style="background-color: #4682B4">
+						Log In Prático
+					</span>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username" style="background-color: #D3D3D3">
+						<%= f.email_field :email,class:"input100", placeholder:"Email" %>
+						<span class="focus-input100" ></span>
+					</div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+					<div class="wrap-input100 validate-input" data-validate = "Please enter password" style="background-color: #D3D3D3">
+						<%= f.password_field :password, class:"input100", placeholder:"Senha" %>
+						<span class="focus-input100"></span>
+					</div>
+          <br>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+					<div class="container-login100-form-btn" >		
+            <%= f.submit "Entrar", class:"login100-form-btn", style:"background-color: #4682B4" %>
+					</div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+					<div class="flex-col-c p-t-50 p-b-40">
+						<span class="txt1 p-b-9">
+							Não tem uma conta?
+						</span>
 
-<%= render "pilots/shared/links" %>
+						<a>
+							<%= link_to 'Registre-se agora!', new_pilot_registration_path, class:"txt3", style:"color: #4682B4"%>
+						</a>
+					</div>
+          <%end%>
+				</div>
+			</div>
+		</div>
+	</div>
+

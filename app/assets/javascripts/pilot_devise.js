@@ -1,0 +1,9 @@
+//= require jquery/jquery-3.2.1.min
+//= require animsition/dist/js/animsition.min
+//= require popper.js/dist/popper
+//= require bootstrap/dist/js/bootstrap.min
+//= require select2/dist/js/select2.min
+//= require moment/min/moment.min
+//= require daterangepicker/daterangepicker
+//= require countdowntime/countdowntime
+//= require js/main

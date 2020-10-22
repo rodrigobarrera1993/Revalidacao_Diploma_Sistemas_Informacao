@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+
+    <%= stylesheet_link_tag    'application'%>
+    <%= stylesheet_link_tag    'operator_devise'%>
+  </head>
+
+  <body>
+    <%= yield %>
+    	
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'operator_devise' %>
+
+  </body>
+</html>
