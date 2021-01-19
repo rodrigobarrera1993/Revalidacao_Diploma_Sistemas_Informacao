@@ -126,7 +126,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                  <%=link_to '#', method: :delete, class:"dropdown-item" do%>
+                  <%=link_to destroy_pilot_session_path, method: :delete, class:"dropdown-item" do%>
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
                 <%end%>   
               </div>
@@ -148,13 +148,7 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright; Sistemas de Informação 2021</span>
-          </div>
-        </div>
-      </footer>
+      
       <!-- End of Footer -->
 
     </div>
