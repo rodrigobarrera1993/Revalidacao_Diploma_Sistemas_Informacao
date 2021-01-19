@@ -7,3 +7,4 @@
 //= require daterangepicker/daterangepicker
 //= require countdowntime/countdowntime
 //= require js/main
+//= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl

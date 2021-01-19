@@ -1,2 +1,39 @@
-<h1>PilotsBackoffice::Welcome#index</h1>
-<p>Find me in app/views/pilots_backoffice/welcome/index.html.erb</p>
+<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">Bem-Vindo ao Perfil do Prático</h1>
+      <p class="lead my-3">Para navegação nesta sessão, utilize dos links a esquerda. Caso deseje retornar a esta página, clique em "Backoffice Prático"</p>
+    </div>
+  </div>
+
+<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Segurança</strong>
+          <h3 class="mb-0">Embarque</h3>  
+          <p class="card-text mb-auto">A passagem do prático da lancha para o navio é o momento mais perigoso para quem exerce a atividade. O profissional tem como função auxiliar o comandante da embarcação e garantir a segurança nas manobras de ingresso e atracação nos portos. Além da dificuldade imposta por ondas e ventos, um em cada oito arranjos no mundo apresenta irregularidades, segundo dados da última pesquisa da International Maritime Pilots' Association (IMPA). A escada de quebra-peito e a escada de quebra-peito combinada com a escada de portaló são os principais meios de embarque e desembarque e devem estar conservadas e instaladas em acordo com as normas da Convenção Internacional para a Salvaguarda da Vida Humana no Mar (SOLAS).</p>
+          <strong> <p> (FONTE: https://portogente.com.br/noticias/transporte-logistica/109273-praticagem-do-brasil-faz-campanha-por-seguranca-nas-escadas-de-acesso-a-embarcacoes)</p> </strong>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <rect width="100%" height="100%" fill="#55595c">
+          <%= image_tag("pratico_escada.jpg", size: "400x300") %>
+          </rect>
+        </div>
+</div>
+
+<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Tecnologia</strong>
+          <h3 class="mb-0">Navigandi Orbis - Portable Pilot Unit</h3>  
+          <p class="card-text mb-auto">O Navigandi Orbis é um Portable Pilot Unit (PPU) adaptável, podendo ser utilizado com uma ou duas antenas. Na primeira opção o equipamento fica parcialmente dependente dos dados do navio, produzindo os próprios dados de Posição, Velocidade e Taxa de guinada, mas requer dados do AIS do navio para correções de Aproamento. Já com duas antenas os dados produzidos são totalmente independentes dos dados da embarcação.
+            Durante os meses de dezembro (2020) e janeiro (2021), testes de validação e calibração do equipamento para ambas as configurações foram realizados nos Portos de Santos e Rio Grande. 
+        </p>
+          <strong> <p> (FONTE: https://www.linkedin.com/company/naviganditech)</p> </strong>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <rect width="100%" height="100%" fill="#55595c">
+          <%= image_tag("tanker_santos.jpg", size: "400x300") %>
+          </rect>
+        </div>
+</div>
+
+
+

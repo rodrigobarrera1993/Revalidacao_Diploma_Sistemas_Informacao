@@ -1,29 +1,53 @@
-<h2>Sign up Operador</h2>
+<title> Sign Up Operador </title>
+<div class="limiter">
+		<div class="container-login100" style="background-color: #D3D3D3">
+			<div class="wrap-login100">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <% if @operator.errors.any?%>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <h5 class="alert-heading">Erros Encontrados</h5>
+                <ul>
+                    <% @operator.errors.full_messages.each  do |message| %>
+                    <li style="color:black; font-size:15px"> <%= message %></li>
+                    <%end%>
+                </ul>
+                <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+        <% end %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "operators/shared/error_messages", resource: resource %>
+        <div class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+					<span class="login100-form-title" style="background-color: #D2691E">
+						Cadastro Operador
+					</span>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username" style="background-color: #D3D3D3">
+						<%= f.email_field :email,class:"input100", placeholder:"Email" %>
+						<span class="focus-input100" ></span>
+					</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+					<div class="wrap-input100 validate-input" data-validate = "Please enter password" style="background-color: #D3D3D3">
+						<%= f.password_field :password, class:"input100", placeholder:"Senha" %>
+						<span class="focus-input100"></span>
+					</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+          	<div class="wrap-input100 validate-input" data-validate = "Please enter password" style="background-color: #D3D3D3">
+						  <%= f.password_field :password_confirmation, class:"input100", placeholder:"Confirmação de Senha"%>
+						<span class="focus-input100"></span>
+					</div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "operators/shared/links" %>
+
+          <br>
+
+					<div class="container-login100-form-btn" >		
+            <%= f.submit "Registrar-se", class:"login100-form-btn", style:"background-color: #D2691E" %>
+					</div>
+          <br>
+          <%end%>
+				</div>
+			</div>
+		</div>
+	</div>
+

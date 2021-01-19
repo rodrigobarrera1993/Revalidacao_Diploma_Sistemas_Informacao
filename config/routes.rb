@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
   namespace :pilots_backoffice do
     get 'welcome/index'
+    get 'profile', to: 'profile#edit'
   end
   
   devise_for :operators

@@ -1,0 +1,2 @@
+module PilotsBackoffice::ProfileHelper
+end

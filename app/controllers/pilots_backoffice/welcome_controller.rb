@@ -1,4 +1,4 @@
-class PilotsBackoffice::WelcomeController < ApplicationController
+class PilotsBackoffice::WelcomeController < PilotsBackofficeController
   def index
   end
 end
