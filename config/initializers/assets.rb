@@ -18,4 +18,5 @@ Rails.application.config.assets.precompile += %w(site.js site.scss
                                                 pilot_devise.js pilot_devise.scss
                                                 operator_devise.js operator_devise.scss
                                                 pilots_backoffice.coffee pilots_backoffice.scss
-                                                pratico_escada.jpg tanker_santos.jpg)
+                                                pratico_escada.jpg tanker_santos.jpg
+                                                operators_backoffice.coffee operators_backoffice.scss)
