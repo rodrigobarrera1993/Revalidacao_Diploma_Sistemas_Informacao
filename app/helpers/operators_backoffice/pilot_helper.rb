@@ -1,0 +1,2 @@
+module OperatorsBackoffice::PilotHelper
+end

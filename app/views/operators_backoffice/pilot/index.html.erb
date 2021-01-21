@@ -1,0 +1,56 @@
+<h1> Listando Práticos </h1>
+<div class="w3-padding w3-white notranslate">
+<div class="table-responsive">
+<table class="table table-hover">
+    <thead>
+        <tr>
+        <th>Id</th>
+         <th>E-mail</th>
+        <th scope="col"> 
+            <%= link_to new_operators_backoffice_pilot_path, class:"btn btn-success btn-circle" do%>
+                <i class="fas fa-plus"></i>
+            <%end%>
+        </th>
+       <!-- 
+       <th>Nome</th>
+        <th>Sobrenome</th>
+         -->
+        </tr>
+    </thead>
+    <tbody>
+    <% @pilots.each do |pilot| %>
+        <%#= if pilot.pilot_profile.blank?
+            pilot.build_pilot_profile
+         end%>
+        <tr>
+            <td><%= pilot.id %></td>
+            <td><%= pilot.email %></td>
+            <!--
+            <td><%#= pilot.pilot_profile.first_name %></td>
+            <td><%#= pilot.pilot_profile.last_name %></td>
+            -->
+             <td style="width: 120px">
+                         <!-- Topbar Navbar 
+                      <button type="button" class="btn btn-primary btn-circle">
+                        <i class="far fa-edit"></i>
+                      </button>
+                      -->
+                      <%= link_to edit_operators_backoffice_pilot_path(pilot.id), class:"btn btn-primary btn-circle" do%>
+                        <i class="far fa-edit"></i>
+                      <%end%>
+
+                       <%= link_to operators_backoffice_pilot_path(pilot.id), method: :delete, class:"btn btn-danger btn-circle", data: {confirm: "Deseja realmente excluir este prático?"} do%>
+                        <i class="fas fa-trash-alt"></i>
+                      <%end%>
+
+                      
+                      
+                    </td>
+            
+        </tr>
+       
+    <% end %>
+    </tbody>
+</table>
+</div>
+</div>

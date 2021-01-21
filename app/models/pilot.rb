@@ -4,6 +4,6 @@ class Pilot < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :pilot_profile
+  has_one :pilot_profile, :dependent => :delete
   accepts_nested_attributes_for :pilot_profile, reject_if: :all_blank, allow_destroy: true
 end

@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-md-12 col-sm-12 ">
+        <div class="x_panel">
+            <div class="x_title">
+               
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <% if @pilot.errors.any?%>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <h5 class="alert-heading">Erros Encontrados</h5>
+                        <ul>
+                            <% @pilot.errors.full_messages.each  do |message| %>
+                            <li style="color:black; font-size:15px"> <%= message %></li>
+                            <%end%>
+                        </ul>
+                        <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                <% end %>
+
+                <%= form_with(url:operators_backoffice_pilot_path, model: @pilot, local: true) do |form| %>
+                
+                <%= form.fields_for :pilot_profile do |profile_form| %>
+
+                    <div class="item form-group">
+                        <%=profile_form.label 'Nome', class:"col-form-label col-md-3 col-sm-3 label-align"%>
+                        <div class="col-md-6 col-sm-6 ">
+                            <%=profile_form.text_field :first_name, class:"form-control"%>
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <%=profile_form.label 'Sobrenome', class:"col-form-label col-md-3 col-sm-3 label-align"%>
+                        <div class="col-md-6 col-sm-6 ">
+                            <%=profile_form.text_field :last_name, class:"form-control"%>
+                        </div>
+                    </div>
+
+                      <div class="item form-group">
+                        <%=profile_form.label 'Endereço', class:"col-form-label col-md-3 col-sm-3 label-align"%>
+                        <div class="col-md-6 col-sm-6 ">
+                            <%=profile_form.text_field :address, class:"form-control"%>
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <%=profile_form.label 'Data de Nascimento', class:"col-form-label col-md-3 col-sm-3 label-align"%>
+                        <div class="col-md-6 col-sm-6 ">
+                            
+                            <div class="col-md-6 col-sm-6 ">
+                            <%=profile_form.text_field :birthdate, id:"birthday", class:"date-picker form-control", placeholder:"dd-mm-yyyy", type:"text", onfocus:"this.type='date'", onmouseover:"this.type='date'", onclick:"this.type='date'", onblur:"this.type='text'", onmouseout:"timeFunctionLong(this)"%>
+                            </div>
+                            <script>
+                                function timeFunctionLong(input) {
+                                    setTimeout(function() {
+                                        input.type = 'text';
+                                    }, 60000);
+                                }
+                            </script>
+                            </div>
+                        </div>
+                    <%end%>
+
+                    <div class="item form-group">
+                        <%=form.label 'E-mail', class:"col-form-label col-md-3 col-sm-3 label-align"%>
+                        <div class="col-md-6 col-sm-6 ">
+                            <%=form.text_field :email, class:"form-control", readonly: true %>
+                        </div>
+                    </div>
+
+                     <div class="item form-group">
+                        <%=form.label 'Senha', class:"col-form-label col-md-3 col-sm-3 label-align"%>
+                        <div class="col-md-6 col-sm-6 ">
+                            <%=form.password_field :password, class:"form-control" %>
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <%=form.label 'Confirmação de Senha', class:"col-form-label col-md-3 col-sm-3 label-align"%>
+                        <div class="col-md-6 col-sm-6 ">
+                            <%=form.password_field :password_confirmation, class:"form-control", placeholder:"Digite confirmação de senha" %>
+                        </div>
+                    </div>
+
+                
+
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="item form-group">
+                        <div class="col-md-6 col-sm-6 offset-md-3">
+                            <button type="submit" class="btn btn-success">Enviar</button>
+                        </div>
+                    </div>
+
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
