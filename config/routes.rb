@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     get 'welcome/index'
     get 'profile', to: 'profile#edit'
     patch 'profile', to: 'profile#update'
-    #get 'pilot', to: 'pilot#index'
     resources :pilot, only: [:index, :edit, :update, :new, :create, :destroy]
+    resources :operator, only: [:index, :edit, :update, :new, :create, :destroy]
   end
   
   devise_for :operators
