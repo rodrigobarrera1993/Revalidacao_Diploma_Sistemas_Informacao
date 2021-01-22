@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vessel: one
+  vessel_displacement: 1.5
+  terminal: one
+  operator_profile: one
+  pilot_profile: one
+  relatory: one
+  date_maneuver: 2021-01-22
+  time_maneuver: 2021-01-22 14:57:05
+  is_finished: false
+  type_maneuver: MyString
+
+two:
+  vessel: two
+  vessel_displacement: 1.5
+  terminal: two
+  operator_profile: two
+  pilot_profile: two
+  relatory: two
+  date_maneuver: 2021-01-22
+  time_maneuver: 2021-01-22 14:57:05
+  is_finished: false
+  type_maneuver: MyString

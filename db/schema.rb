@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_19_131558) do
+ActiveRecord::Schema.define(version: 2021_01_22_145705) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,26 @@ ActiveRecord::Schema.define(version: 2021_01_19_131558) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "maneuvers", force: :cascade do |t|
+    t.integer "vessel_id"
+    t.float "vessel_displacement", null: false
+    t.integer "terminal_id"
+    t.integer "operator_profile_id"
+    t.integer "pilot_profile_id"
+    t.integer "relatory_id"
+    t.date "date_maneuver", null: false
+    t.time "time_maneuver", null: false
+    t.boolean "is_finished", default: false
+    t.string "type_maneuver", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["operator_profile_id"], name: "index_maneuvers_on_operator_profile_id"
+    t.index ["pilot_profile_id"], name: "index_maneuvers_on_pilot_profile_id"
+    t.index ["relatory_id"], name: "index_maneuvers_on_relatory_id"
+    t.index ["terminal_id"], name: "index_maneuvers_on_terminal_id"
+    t.index ["vessel_id"], name: "index_maneuvers_on_vessel_id"
   end
 
   create_table "operator_profiles", force: :cascade do |t|
@@ -77,6 +97,34 @@ ActiveRecord::Schema.define(version: 2021_01_19_131558) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_pilots_on_email", unique: true
     t.index ["reset_password_token"], name: "index_pilots_on_reset_password_token", unique: true
+  end
+
+  create_table "relatories", force: :cascade do |t|
+    t.text "maneuver_description"
+    t.text "vessel_tendecies"
+    t.integer "maneuver_safety"
+    t.integer "ladder_safety"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "terminals", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "cargo", null: false
+    t.string "url_image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vessels", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "mmsi", null: false
+    t.float "length", null: false
+    t.float "width", null: false
+    t.string "type_vessel", null: false
+    t.string "url_image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  maneuver_description: MyText
+  vessel_tendecies: MyText
+  maneuver_safety: 1
+  ladder_safety: 1
+
+two:
+  maneuver_description: MyText
+  vessel_tendecies: MyText
+  maneuver_safety: 1
+  ladder_safety: 1
