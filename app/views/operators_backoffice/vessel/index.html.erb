@@ -1,0 +1,51 @@
+<h1> Listando Navios </h1>
+<div class="w3-padding w3-white notranslate">
+<div class="table-responsive">
+<table class="table table-hover">
+    <thead>
+        <tr>
+        <th>Nome</th>
+        <th>MMSI</th>
+        <th>Comprimento</th>
+        <th>Boca (Largura)</th>
+        <th>Tipo</th>
+        <th>Imagem</th>
+        <th scope="col"> 
+            <%= link_to new_operators_backoffice_vessel_path, class:"btn btn-success btn-circle" do%>
+                <i class="fas fa-plus"></i>
+            <%end%>
+        </th>
+       <!-- 
+       <th>Nome</th>
+        <th>Sobrenome</th>
+         -->
+        </tr>
+    </thead>
+    <tbody>
+    <% @vessels.each do |vessel| %>
+        <tr>
+            <td><%= vessel.name %></td>
+            <td><%= vessel.mmsi %></td>
+            <td><%= vessel.length %></td>
+            <td><%= vessel.width %></td>
+            <td><%= vessel.type_vessel %></td>
+            <td><%= image_tag vessel.url_image, width:100, height:50 %></td>
+             <td style="width: 120px">
+                <%= link_to edit_operators_backoffice_vessel_path(vessel.id), class:"btn btn-primary btn-circle" do%>
+                <i class="far fa-edit"></i>
+                <%end%>
+
+                <%= link_to operators_backoffice_vessel_path(vessel.id), method: :delete, class:"btn btn-danger btn-circle", data: {confirm: "Deseja realmente excluir este navio?"} do%>
+                <i class="fas fa-trash-alt"></i>
+                <%end%>
+            </td>
+            
+        </tr>
+
+     
+       
+    <% end %>
+    </tbody>
+</table>
+</div>
+</div>

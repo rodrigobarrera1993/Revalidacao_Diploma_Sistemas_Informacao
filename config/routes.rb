@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     patch 'profile', to: 'profile#update'
     resources :pilot, only: [:index, :edit, :update, :new, :create, :destroy]
     resources :operator, only: [:index, :edit, :update, :new, :create, :destroy]
+    resources :vessel, only: [:index, :edit, :update, :new, :create, :destroy]
+    resources :terminal, only: [:index, :edit, :update, :new, :create, :destroy]
   end
   
   devise_for :operators

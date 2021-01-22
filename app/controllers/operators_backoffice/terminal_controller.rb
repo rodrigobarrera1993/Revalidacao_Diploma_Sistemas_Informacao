@@ -1,0 +1,2 @@
+class OperatorsBackoffice::TerminalController < OperatorsBackofficeController
+end
