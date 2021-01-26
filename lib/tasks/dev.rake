@@ -33,6 +33,7 @@ namespace :dev do
       
       show_spinner("Criando Navios Padrão...", msg_end ="Fim da Criação de Navios Padrão.") {%x(rails dev:add_vessels)}
       show_spinner("Cadastrando Terminais...", msg_end ="Fim do Cadastro dos Terminais.") {%x(rails dev:add_terminals)}
+      show_spinner("Cadastrando Manobras...", msg_end ="Fim do Cadastro de Manobras.") {%x(rails dev:add_maneuvers)}
     else
       puts "Alterações não realizadas. Environment não é Desenvolvimento"
     end
@@ -113,21 +114,21 @@ namespace :dev do
     create_terminal("AGROVIA DO NORDESTE", "Graneis Sólidos", "https://cdn-pen.nuneshost.com/images/190929-agrivia-d-nordeste-terminal-de-acucar-porto-de-suape.jpg")
   end
 
-  desc "Adiciona perguntas e respostas"
-  task add_answers_and_questions: :environment do
-    Subject.all.each do |subject|
-      rand(5..10).times do |i|
-        #Cria a estrutura das questões junto com seus parametros associados
-        params = create_question_params(subject)
-        answer_array = params[:question][:answers_attributes]
-        #Cria de 2 a 5 respostas por questão
-        add_answers(answer_array)
-
-        #escolhe uma aleatoria para ser a verdadeira
-        elect_true_answer(answer_array)
-
-        Question.create!(params[:question])
-      end
+  desc "Adiciona Manobras"
+  task add_maneuvers: :environment do
+    array_maneuver_type = ["Entrada", "Saída"]
+    (0..4).each do |value|
+      vessel_obj = Vessel.find(rand(1..5).to_s)
+      vessel_displacement = rand(1..55000)
+      terminal_obj = Terminal.find(rand(1..5).to_s)
+      operator_profile_obj = Operator.find(rand(1..5).to_s).operator_profile
+      pilot_profile_obj = Pilot.find(rand(1..5).to_s).pilot_profile
+      date_maneuver = Faker::Date.between(from: '2021-01-1', to: '2021-01-31')
+      time_maneuver = Faker::Time.forward(days: 23, period: :all)
+      type_maneuver = array_maneuver_type.sample
+      relatory_obj = Relatory.create!
+      create_maneuver(vessel_obj, vessel_displacement,terminal_obj,operator_profile_obj, pilot_profile_obj,
+        date_maneuver, time_maneuver, type_maneuver, relatory_obj)
     end
   end
 
@@ -174,6 +175,13 @@ private
 
   def create_terminal(name = "default_name", cargo="Container",url_image="https://cdn.folhape.com.br/img/c/1200/900/dn_arquivo/2018/09/por.jpg")
     Terminal.create!(name: name, cargo: cargo,url_image: url_image)
+  end
+
+  def create_maneuver(vessel_obj, vessel_displacement,terminal_obj,operator_profile_obj, pilot_profile_obj,
+  date_maneuver, time_maneuver, type_maneuver, relatory_obj)
+    Maneuver.create!(vessel: vessel_obj, vessel_displacement: vessel_displacement, terminal: terminal_obj,
+    operator_profile: operator_profile_obj, pilot_profile: pilot_profile_obj, date_maneuver: date_maneuver,
+    time_maneuver: time_maneuver, type_maneuver: type_maneuver, relatory: relatory_obj)
   end
 
   def add_answers(answer_array = [])
