@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :operator, only: [:index, :edit, :update, :new, :create, :destroy]
     resources :vessel, only: [:index, :edit, :update, :new, :create, :destroy]
     resources :terminal, only: [:index, :edit, :update, :new, :create, :destroy]
+    resources :next_maneuvers, only: [:index, :edit, :update, :new, :create, :destroy]
   end
   
   devise_for :operators

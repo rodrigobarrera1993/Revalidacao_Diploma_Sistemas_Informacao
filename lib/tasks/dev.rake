@@ -123,7 +123,7 @@ namespace :dev do
       terminal_obj = Terminal.find(rand(1..5).to_s)
       operator_profile_obj = Operator.find(rand(1..5).to_s).operator_profile
       pilot_profile_obj = Pilot.find(rand(1..5).to_s).pilot_profile
-      date_maneuver = Faker::Date.between(from: '2021-01-1', to: '2021-01-31')
+      date_maneuver = Faker::Date.between(from: '2021-01-1', to: '2021-01-2')
       time_maneuver = Faker::Time.forward(days: 23, period: :all)
       type_maneuver = array_maneuver_type.sample
       relatory_obj = Relatory.create!
