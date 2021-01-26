@@ -1,1 +1,45 @@
-<h1> Terminal Index </h1>
+<h1> Listando Terminais </h1>
+<div class="w3-padding w3-white notranslate">
+<div class="table-responsive">
+<table class="table table-hover">
+    <thead>
+        <tr>
+        <th>Nome</th>
+        <th>Tipo de Carga</th>
+        <th>Imagem</th>
+        <th scope="col"> 
+            <%= link_to new_operators_backoffice_terminal_path, class:"btn btn-success btn-circle" do%>
+                <i class="fas fa-plus"></i>
+            <%end%>
+        </th>
+       <!-- 
+       <th>Nome</th>
+        <th>Sobrenome</th>
+         -->
+        </tr>
+    </thead>
+    <tbody>
+    <% @terminals.each do |terminal| %>
+        <tr>
+            <td><%= terminal.name %></td>
+            <td><%= terminal.cargo %></td>
+            <td><%= image_tag terminal.url_image, width:100, height:50 %></td>
+             <td style="width: 120px">
+                <%= link_to edit_operators_backoffice_terminal_path(terminal.id), class:"btn btn-primary btn-circle" do%>
+                <i class="far fa-edit"></i>
+                <%end%>
+
+                <%= link_to operators_backoffice_terminal_path(terminal.id), method: :delete, class:"btn btn-danger btn-circle", data: {confirm: "Deseja realmente excluir este terminal?"} do%>
+                <i class="fas fa-trash-alt"></i>
+                <%end%>
+            </td>
+            
+        </tr>
+
+     
+       
+    <% end %>
+    </tbody>
+</table>
+</div>
+</div>
