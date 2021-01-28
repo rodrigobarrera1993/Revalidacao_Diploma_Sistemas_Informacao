@@ -1,0 +1,2 @@
+class PilotsBackoffice::MyPerformedManeuversController < PilotsBackofficeController
+end

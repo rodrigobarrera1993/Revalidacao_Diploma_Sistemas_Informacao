@@ -3,11 +3,47 @@
     Próximas Manobras
   </div>
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="w3-padding w3-white notranslate">
+      <div class="table-responsive">
+      <table class="table table-hover">
+          <thead>
+              <tr>
+              <th>Data</th>
+              <th>Horário</th>
+              <th>Tipo de Manobra</th>
+              <th>Navio</th>
+              <th>Comprimento</th>
+              <th>Boca</th>
+              <th>Foto</th>
+              <th>Terminal</th>
+              <th>Foto</th>
+         
+            <!-- 
+            <th>Nome</th>
+              <th>Sobrenome</th>
+              -->
+              </tr>
+          </thead>
+          <tbody>
+          <% @maneuvers.each do |maneuver| %>
+              
+              <tr>
+                  <td><%= "#{maneuver.date_maneuver.day}/#{maneuver.date_maneuver.month}/#{maneuver.date_maneuver.year}" %></td>
+                  <td><%= maneuver.time_maneuver.strftime("%k:%M") %></td>
+                  
+                  <td><%= maneuver.type_maneuver%></td>
+                  <td><%= maneuver.vessel.name%></td>
+                  <td><%= maneuver.vessel.length%></td>
+                  <td><%= maneuver.vessel.width%></td>
+                  <td><%= image_tag maneuver.vessel.url_image, width:100, height:50 %></td>
+                  <td><%= maneuver.terminal.name%></td>
+                  <td><%= image_tag maneuver.terminal.url_image, width:100, height:50 %></td>
+              </tr>
+          <% end %>
+          </tbody>
+      </table>
+      </div>
+      </div>
   </div>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
+
 </div>

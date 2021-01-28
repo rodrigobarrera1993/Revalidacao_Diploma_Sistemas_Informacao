@@ -4,7 +4,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "animsition": "^4.0.2",
-    "bootstrap": "4.5.0",
+    "bootstrap": "4.5.1",
     "bootstrap-growl-ifightcrime": "^1.1.0",
     "cocoon": "^0.1.1",
     "cocoon-js": "^0.0.5",

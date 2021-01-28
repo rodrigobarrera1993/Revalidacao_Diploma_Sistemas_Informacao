@@ -1,0 +1,2 @@
+module PilotsBackoffice::MyPerformedManeuversHelper
+end

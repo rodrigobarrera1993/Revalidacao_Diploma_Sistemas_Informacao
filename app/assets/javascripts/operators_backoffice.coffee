@@ -10,3 +10,5 @@
 //= require cocoon/lib/cocoon.js
 //= require jquery-ui/ui/widgets/datepicker
 //= require jquery-ui/ui/i18n/datepicker-pt-BR
+//= require checkout/form-validation
+

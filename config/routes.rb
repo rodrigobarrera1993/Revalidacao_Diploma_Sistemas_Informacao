@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     get 'welcome/index'
     get 'profile', to: 'profile#edit'
     patch 'profile', to: 'profile#update'
+    resources :my_next_maneuvers, only: [:index, :edit, :update]
+    resources :my_performed_maneuvers, only: [:index]
   end
 
   namespace :operators_backoffice do
