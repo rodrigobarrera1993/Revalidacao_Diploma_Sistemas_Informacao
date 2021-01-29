@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'profile', to: 'profile#edit'
     patch 'profile', to: 'profile#update'
     resources :my_next_maneuvers, only: [:index, :edit, :update]
-    resources :my_performed_maneuvers, only: [:index]
+    resources :my_performed_maneuvers, only: [:index, :edit]
   end
 
   namespace :operators_backoffice do
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :vessel, only: [:index, :edit, :update, :new, :create, :destroy]
     resources :terminal, only: [:index, :edit, :update, :new, :create, :destroy]
     resources :next_maneuvers, only: [:index, :edit, :update, :new, :create, :destroy]
+    resources :performed_maneuvers, only: [:index, :edit]
   end
   
   devise_for :operators

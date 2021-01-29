@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col-md-12 col-sm-12 ">
+        <div class="x_panel">
+            <div class="x_title">
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <% if @maneuver.errors.any?%>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <h5 class="alert-heading">Erros Encontrados</h5>
+                        <ul>
+                            <% @maneuver.errors.full_messages.each  do |message| %>
+                            <li style="color:black; font-size:15px"> <%= message %></li>
+                            <%end%>
+                        </ul>
+                        <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                <% end %>
+
+                <%= form_with(url:pilots_backoffice_my_next_maneuver_path, model: @maneuver, local: true) do |form| %>
+                    <%= form.fields_for :relatory do |relatory_form| %>
+                       <div class="item form-group">
+                        <div class="row" >
+                            <%=relatory_form.label 'Descrição da Manobra', class:"col-md-4 mb-1", style:"color:black; font-size:20px"%>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="col-md-8 mb-3 ">
+                            <%=relatory_form.text_area :maneuver_description, placeholder: "Digite a descrição da manobra aqui ...", class:"form-control", rows: 10, :required => 'required'%>
+                          </div>
+                        </div>
+
+                    <div class="item form-group">
+                        <div class="row">
+                            <%=relatory_form.label 'Tendências do Navio', class:"col-md-4 mb-1",style:"color:black; font-size:20px"%>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-8 mb-3">
+                            <%=relatory_form.text_area :vessel_tendecies, placeholder: "Digite informações relacionadas as tendências e manobrabilidade do navio aqui ...", class:"form-control", rows: 10, :required => 'required' %>
+                          </div>
+                        </div>
+                            
+                        <div class="item form-group">
+                            <div class="row">
+                                    <div class="col-md-8 mb-3">
+                                        <%=relatory_form.label 'Nota para segurança da manobra', class:"col-md-6 mb-1", style:"color:black; font-size:20px"%>
+                                        <%=relatory_form.select(:maneuver_safety, options_for_select(@grades_options), {prompt: "Selecione..."}, {class:" form-control custom-select d-block w-100",:required => 'required' })%>
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="item form-group">
+                            <div class="row">
+                                    <div class="col-md-8 mb-3">
+                                        <%=relatory_form.label 'Nota para segurança da escada', class:"col-md-6 mb-1", style:"color:black; font-size:20px"%>
+                                        <%=relatory_form.select(:ladder_safety, options_for_select(@grades_options), {prompt: "Selecione..."}, {class:" form-control custom-select d-block w-100",:required => 'required' })%>
+                                </div>
+                            </div>
+                        </div>
+                    <%end%>
+
+        
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="item form-group">
+                        <div class="col-md-6 col-sm-6 offset-md-3">
+                            <button type="submit" class="btn btn-success" onclick="return confirm('Tem certeza que deseja enviar o relatório para esta manobra? Após enviado, o relatório não poderá mais ser editado e poderá ser enviado a Marinha do Brasil caso solicitado.')">Enviar</button>
+                        </div>
+                    </div>
+
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+

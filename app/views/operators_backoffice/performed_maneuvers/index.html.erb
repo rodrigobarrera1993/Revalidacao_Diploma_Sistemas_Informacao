@@ -1,4 +1,4 @@
-<h1> Minhas Manobras Executadas</h1>
+<h1> Manobras Executadas</h1>
 <div class="w3-padding w3-white notranslate">
 <div class="table-responsive">
 <table class="table table-hover">
@@ -6,6 +6,7 @@
         <tr>
         <th>Data</th>
         <th>Horário</th>
+        <th>Prático</th>
         <th>Tipo de Manobra</th>
         <th>Navio</th>
         <th>Comprimento</th>
@@ -16,7 +17,7 @@
         <th>Tipo de Carga</th>
         <th>Foto</th>
         <th>Operador</th>
-        <th>Link Relatorio</th>
+         <th>Link Relatório</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,7 @@
         <tr>
             <td><%= "#{maneuver.date_maneuver.day}/#{maneuver.date_maneuver.month}/#{maneuver.date_maneuver.year}" %></td>
             <td><%= maneuver.time_maneuver.strftime("%k:%M") %></td>
+            <td><%= "#{maneuver.pilot_profile.first_name} #{maneuver.pilot_profile.last_name}" %></td>
             <td><%= maneuver.type_maneuver%></td>
              <td><%= maneuver.vessel.name%></td>
              <td><%= maneuver.vessel.length%></td>
@@ -34,17 +36,12 @@
              <td><%= maneuver.terminal.name%></td>
              <td><%= maneuver.terminal.cargo%></td>
             <td><%= image_tag maneuver.terminal.url_image, width:100, height:50 %></td>
-            <td><%= "#{maneuver.operator_profile.first_name} #{maneuver.operator_profile.last_name}" %></td>
-
-
-             <td style="width: 120px">
-                <%= link_to "Visualizar Relatorio", edit_pilots_backoffice_my_performed_maneuver_path(maneuver.id)%>
+            <td><%= "#{maneuver.operator_profile.first_name} #{maneuver.operator_profile.last_name}" %></td>         
+            <td style="width: 120px">
+                <%= link_to "Relatório", edit_operators_backoffice_performed_maneuver_path(maneuver.id)%>
             </td>
             
         </tr>
-
-   
-       
     <% end %>
     </tbody>
 </table>

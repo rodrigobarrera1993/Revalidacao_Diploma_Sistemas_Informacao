@@ -1,0 +1,2 @@
+module OperatorsBackoffice::PerformedManeuversHelper
+end
