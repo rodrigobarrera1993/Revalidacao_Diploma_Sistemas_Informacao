@@ -24,8 +24,16 @@ class PilotsBackoffice::MyNextManeuversController < PilotsBackofficeController
         @maneuver.relatory.maneuver_safety = params[:maneuver][:relatory][:maneuver_safety].to_i
         @maneuver.relatory.ladder_safety = params[:maneuver][:relatory][:ladder_safety].to_i
         @maneuver.is_finished = true
-        if  @maneuver.save! && @maneuver.relatory.save!
+
+        pilot_statistic = PilotStatistic.find_or_create_by(pilot: current_pilot)
+        pilot_statistic.total_maneuvers+=1
+        pilot_statistic.avg_maneuver_safety = (((pilot_statistic.total_maneuvers-1)*pilot_statistic.avg_maneuver_safety) + @maneuver.relatory.maneuver_safety)/ pilot_statistic.total_maneuvers
+        pilot_statistic.avg_ladder_safety = (((pilot_statistic.total_maneuvers-1)*pilot_statistic.avg_ladder_safety) + @maneuver.relatory.ladder_safety)/ pilot_statistic.total_maneuvers
+        if  @maneuver.save! && @maneuver.relatory.save! && pilot_statistic.save!
             #bypass_sign_in(@pilot)
+            #Update Statistics
+           
+
             redirect_to pilots_backoffice_my_next_maneuvers_path, notice: "Relatório Enviado com Sucesso!"
         else
             render :edit

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_145705) do
+ActiveRecord::Schema.define(version: 2021_01_29_181327) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -85,6 +85,16 @@ ActiveRecord::Schema.define(version: 2021_01_22_145705) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pilot_id"], name: "index_pilot_profiles_on_pilot_id"
+  end
+
+  create_table "pilot_statistics", force: :cascade do |t|
+    t.integer "pilot_id"
+    t.integer "total_maneuvers", default: 0
+    t.float "avg_maneuver_safety", default: 0.0
+    t.float "avg_ladder_safety", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pilot_id"], name: "index_pilot_statistics_on_pilot_id"
   end
 
   create_table "pilots", force: :cascade do |t|

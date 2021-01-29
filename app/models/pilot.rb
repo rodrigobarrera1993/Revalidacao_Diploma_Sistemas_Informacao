@@ -6,6 +6,7 @@ class Pilot < ApplicationRecord
 
     
   has_one :pilot_profile, :dependent => :destroy
+  has_one :pilot_statistic, :dependent => :destroy
   has_many :maneuvers, :through => :pilot_profile 
 
   accepts_nested_attributes_for :pilot_profile, reject_if: :all_blank, allow_destroy: true

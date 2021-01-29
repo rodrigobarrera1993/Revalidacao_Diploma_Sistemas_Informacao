@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pilot: one
+  total_maneuvers: 1
+  avg_maneuver_safety: 1.5
+  avg_ladder_safety: 1.5
+
+two:
+  pilot: two
+  total_maneuvers: 1
+  avg_maneuver_safety: 1.5
+  avg_ladder_safety: 1.5
