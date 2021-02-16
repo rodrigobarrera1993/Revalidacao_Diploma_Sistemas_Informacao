@@ -6,26 +6,21 @@
 }
  </style>
 
-<!doctype html>
-
-<html>
-  <head>
-  
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <title>LogisticaDeManobras</title>
 
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  
+    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag  'site' %>
 
-    <%= stylesheet_link_tag    'application' %>
-    <%= stylesheet_link_tag    'site' %>
     
 
-  </head>
-
-  <body>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light rounded " style="background-color: #2f4f4f; padding:20px">
@@ -41,10 +36,10 @@
           <%if pilot_signed_in? == false && operator_signed_in? == false%>
            
              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" style="font-size: 20px; color: white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" style="font-size: 20px; color: white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Entrar
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #DCDCDC">
+              <div class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink" style="background-color: #DCDCDC">
                 <a><%= link_to 'Operador', new_operator_session_path , class:"dropdown-item", style:"font-size: 15px; color: black"%></a>
                 <hr>
                  <a><%= link_to 'Prático', new_pilot_session_path , class:"dropdown-item", style:"font-size: 15px; color: black"%></a>
@@ -103,6 +98,7 @@
       </nav> 
       <%= yield %>
     </div>
+
       <%= javascript_include_tag 'application'%>
       <%= javascript_include_tag 'site'%>
     <!-- Bootstrap core JavaScript
@@ -122,6 +118,6 @@
       });
       <%end%>
     <%end%>-->
-  </body>
-</html>
+ 
+
 
