@@ -21,5 +21,5 @@ Rails.application.config.assets.precompile += %w(site.js site.scss
                                                 pratico_escada.jpg tanker_santos.jpg
                                                 operators_backoffice.coffee operators_backoffice.scss
                                                 atalaia.jpg operacao_atalaia.jpg
-                                                mestrado_1.jpeg mestrado_2.jpeg
-                                                etown.JPG mbm.jpeg)
+                                                mestrado_1.jpg mestrado_2.jpg
+                                                etown.jpg mbm.jpg)
