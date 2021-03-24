@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2021_01_29_181327) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -34,12 +37,12 @@ ActiveRecord::Schema.define(version: 2021_01_29_181327) do
   end
 
   create_table "maneuvers", force: :cascade do |t|
-    t.integer "vessel_id"
+    t.bigint "vessel_id"
     t.float "vessel_displacement", null: false
-    t.integer "terminal_id"
-    t.integer "operator_profile_id"
-    t.integer "pilot_profile_id"
-    t.integer "relatory_id"
+    t.bigint "terminal_id"
+    t.bigint "operator_profile_id"
+    t.bigint "pilot_profile_id"
+    t.bigint "relatory_id"
     t.date "date_maneuver", null: false
     t.time "time_maneuver", null: false
     t.boolean "is_finished", default: false
@@ -58,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_01_29_181327) do
     t.string "last_name"
     t.string "address"
     t.date "birthdate"
-    t.integer "operator_id"
+    t.bigint "operator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["operator_id"], name: "index_operator_profiles_on_operator_id"
@@ -81,14 +84,14 @@ ActiveRecord::Schema.define(version: 2021_01_29_181327) do
     t.string "last_name"
     t.string "address"
     t.date "birthdate"
-    t.integer "pilot_id"
+    t.bigint "pilot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pilot_id"], name: "index_pilot_profiles_on_pilot_id"
   end
 
   create_table "pilot_statistics", force: :cascade do |t|
-    t.integer "pilot_id"
+    t.bigint "pilot_id"
     t.integer "total_maneuvers", default: 0
     t.float "avg_maneuver_safety", default: 0.0
     t.float "avg_ladder_safety", default: 0.0
@@ -137,4 +140,13 @@ ActiveRecord::Schema.define(version: 2021_01_29_181327) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "maneuvers", "operator_profiles"
+  add_foreign_key "maneuvers", "pilot_profiles"
+  add_foreign_key "maneuvers", "relatories"
+  add_foreign_key "maneuvers", "terminals"
+  add_foreign_key "maneuvers", "vessels"
+  add_foreign_key "operator_profiles", "operators"
+  add_foreign_key "pilot_profiles", "pilots"
+  add_foreign_key "pilot_statistics", "pilots"
 end
